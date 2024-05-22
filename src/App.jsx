@@ -24,7 +24,7 @@ function App() {
 
             {/* StudentList 컴포넌트를 렌더링하고 필요한 props를 전달합니다. */}
             <StudentList
-                initialStudents={filteredStudents}
+                filteredStudents={filteredStudents}
                 /* 필요한 props를 여기에 전달하세요. */
             />
         </div>

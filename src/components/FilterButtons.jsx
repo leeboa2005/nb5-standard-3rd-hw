@@ -8,18 +8,17 @@ function FilterButtons({ initialStudents, setFilteredStudents }) {
 
     const filterByAge = (minAge) => {
         const filtered = initialStudents.filter((student) => student.age >= minAge);
-        setFilteredStudents(filtered);
+        setFilteredStudents(initialStudents);
+        setFilteredStudents((prevStudens) => prevStudens.filter((student) => student.age >= minAge));
     };
 
     const filterByGrade = (targetGrade) => {
-        const filtered = initialStudents.filter((student) => student.grade === targetGrade);
-        setFilteredStudents(filtered);
+        setFilteredStudents(initialStudents);
+        setFilteredStudents((prevStudens) => prevStudens.filter((student) => student.grade === targetGrade));
     };
 
     const resetFilter = () => {
         setFilteredStudents(initialStudents);
-        setMinAge('');
-        setGrade('');
     };
     return (
         <div>
@@ -30,10 +29,5 @@ function FilterButtons({ initialStudents, setFilteredStudents }) {
         </div>
     );
 }
-
-FilterButtons.propTypes = {
-    initialStudents: PropTypes.array.isRequired,
-    setFilteredStudents: PropTypes.func.isRequired,
-};
 
 export default FilterButtons;
